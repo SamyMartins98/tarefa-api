@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.estudos.tarefas.enuns.SituacaoTarefa;
+import br.com.estudos.tarefas.commons.enuns.SituacaoTarefa;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,14 +31,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "tarefas", schema = "estudos")
+@Table(name = "tarefa", schema = "estudos")
 public class Tarefa implements Serializable {
   	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name = "tarefasIdSeq", sequenceName = "estudos.tarefas_id_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tarefasIdSeq")
+	@SequenceGenerator(name = "tarefaIdSeq", sequenceName = "estudos.tarefa_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tarefaIdSeq")
 	private Long id;
 	
 	@Column(name="nm_tarefa")
@@ -64,8 +64,8 @@ public class Tarefa implements Serializable {
 	@JoinColumn(name = "tarefa_id")
 	private List<TarefaItem> items;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	/*@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
-	private Usuario usuarioId;
+	private Usuario usuarioId;*/
 	
 }

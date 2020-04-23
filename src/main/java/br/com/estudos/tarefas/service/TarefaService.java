@@ -1,6 +1,7 @@
 package br.com.estudos.tarefas.service;
 
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.com.estudos.tarefas.enuns.SituacaoTarefa;
+import br.com.estudos.tarefas.commons.enuns.SituacaoTarefa;
 import br.com.estudos.tarefas.exception.TarefaException;
 import br.com.estudos.tarefas.model.Tarefa;
 import br.com.estudos.tarefas.repository.TarefaRepository;
@@ -21,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class TarefaService {
-
+	
 	private TarefaRepository tarefaRepository;
 	private TarefaRepositoryQuery tarefaRepositoryQuery;
 	
@@ -33,6 +34,7 @@ public class TarefaService {
 	
 	public Tarefa salvarTarefa(Tarefa tarefa) {
 		log.info("Salvando nova tarefa");
+		tarefa.setDataCriacao(LocalDate.now());
 		return tarefaRepository.save(tarefa);
 	}
 	

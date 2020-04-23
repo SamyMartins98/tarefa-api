@@ -38,12 +38,12 @@ public class TarefaController {
 		this.gerarRelatorioTarefa = gerarRelatorioTarefa;
 	}
 	
-	@PostMapping("cadastrar")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Tarefa> cadastrarTarefa(@RequestBody Tarefa tarefas){
 		return ResponseEntity.status(HttpStatus.CREATED).body(tarefaService.salvarTarefa(tarefas));
 	}
 	
-	@GetMapping
+	@GetMapping("/")
 	public ResponseEntity<List<Tarefa>> findAll(){
 		return ResponseEntity.ok().body(tarefaService.listarTarefas());
 	}

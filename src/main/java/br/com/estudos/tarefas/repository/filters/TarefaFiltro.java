@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import br.com.estudos.tarefas.enuns.SituacaoTarefa;
-import br.com.estudos.tarefas.enuns.TipoConsulta;
+import br.com.estudos.tarefas.commons.enuns.SituacaoTarefa;
+import br.com.estudos.tarefas.commons.enuns.TipoConsulta;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
